@@ -1,0 +1,10 @@
+.idea
+smartcontracts/node_modules
+smartcontracts/.openzeppelin
+smartcontracts/cache
+smartcontracts/artifacts
+smartcontracts/.env
+web3j-1.4.1
+logs
+
+

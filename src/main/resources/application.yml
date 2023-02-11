@@ -1,0 +1,43 @@
+credentials:
+  owner:
+    account:
+      password: hTRujK7_@2
+      path: ../paymentsApp/keystore/admin-key/admin-key.json
+    public-key: "0x7bd3cceac020a8026bae247af726fe88a33c0e24"
+contract:
+  address: "0x1E259cF9edc12BD587D99e19Ad303Ff1378195D4"
+  #TestToken
+spring:
+  application:
+    name: Blockchain-Front-Backend
+  mvspring:
+    throw-exception-if-no-handler-found: true
+  mvc:
+    dispatch-options-request: true
+server:
+  port: 8080
+  servlet.context-path: /backend-blockchain
+connection_max_keep_alive: 10
+max_wait: 1000
+time_refresh_connections: 7000
+min_idle: 2
+max_idle: 300
+time_max_inactive_connections: 2000
+mappersPackage:
+################################ Swagger config ##################################
+swagger.host.internal: http://localhost:8080
+springdoc:
+  swagger-ui:
+    path: /swagger-ui-home.html
+    disable-swagger-default-url: true
+  api-docs:
+    path: /v3/api-docs
+
+  springdoc:
+    packagesToScan: com.company.bcpayments.controller
+    pathsToMatch: /api/v1/**
+    use-management-port: true
+ms:
+  version: v1
+  example:
+    version: v1
