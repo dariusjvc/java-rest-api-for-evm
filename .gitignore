@@ -6,5 +6,6 @@ smartcontracts/artifacts
 smartcontracts/.env
 web3j-1.4.1
 logs
+target
 
 

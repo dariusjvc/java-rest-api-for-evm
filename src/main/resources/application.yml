@@ -1,12 +1,11 @@
 credentials:
   owner:
     account:
-      password: hTRujK7_@2
-      path: ../paymentsApp/keystore/admin-key/admin-key.json
-    public-key: "0x7bd3cceac020a8026bae247af726fe88a33c0e24"
+      password: bcpayments
+      path: ../gitEthereumAPIProject/keystore/admin-key/admin-key.json
+    public-key: "0x8270bc2378075baca187f7143e37bf73303c83f1"
 contract:
-  address: "0x1E259cF9edc12BD587D99e19Ad303Ff1378195D4"
-  #TestToken
+  address: "0xf5d3B5b7bd6F310Ee692509dCB2933A5E1591799"
 spring:
   application:
     name: Blockchain-Front-Backend
