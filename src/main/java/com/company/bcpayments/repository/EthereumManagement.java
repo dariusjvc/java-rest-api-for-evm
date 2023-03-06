@@ -3,7 +3,6 @@ package com.company.bcpayments.repository;
 import com.company.bcpayments.wrapper.UpgradableTokenTest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import javax.validation.constraints.NotNull;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
@@ -12,11 +11,11 @@ import org.web3j.crypto.CipherException;
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.WalletUtils;
 import org.web3j.protocol.Web3j;
-
 import org.web3j.tx.FastRawTransactionManager;
 import org.web3j.tx.gas.StaticGasProvider;
 import org.web3j.tx.response.PollingTransactionReceiptProcessor;
 
+import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.math.BigInteger;
 

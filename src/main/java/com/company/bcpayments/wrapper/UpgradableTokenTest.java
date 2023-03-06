@@ -114,9 +114,9 @@ public class UpgradableTokenTest extends Contract {
     }
 
     public List<ApprovalEventResponse> getApprovalEvents(TransactionReceipt transactionReceipt) {
-        List<Contract.EventValuesWithLog> valueList = extractEventParametersWithLog(APPROVAL_EVENT, transactionReceipt);
+        List<EventValuesWithLog> valueList = extractEventParametersWithLog(APPROVAL_EVENT, transactionReceipt);
         ArrayList<ApprovalEventResponse> responses = new ArrayList<ApprovalEventResponse>(valueList.size());
-        for (Contract.EventValuesWithLog eventValues : valueList) {
+        for (EventValuesWithLog eventValues : valueList) {
             ApprovalEventResponse typedResponse = new ApprovalEventResponse();
             typedResponse.log = eventValues.getLog();
             typedResponse.owner = (String) eventValues.getIndexedValues().get(0).getValue();
@@ -131,7 +131,7 @@ public class UpgradableTokenTest extends Contract {
         return web3j.ethLogFlowable(filter).map(new Function<Log, ApprovalEventResponse>() {
             @Override
             public ApprovalEventResponse apply(Log log) {
-                Contract.EventValuesWithLog eventValues = extractEventParametersWithLog(APPROVAL_EVENT, log);
+                EventValuesWithLog eventValues = extractEventParametersWithLog(APPROVAL_EVENT, log);
                 ApprovalEventResponse typedResponse = new ApprovalEventResponse();
                 typedResponse.log = log;
                 typedResponse.owner = (String) eventValues.getIndexedValues().get(0).getValue();
@@ -149,9 +149,9 @@ public class UpgradableTokenTest extends Contract {
     }
 
     public List<InitializedEventResponse> getInitializedEvents(TransactionReceipt transactionReceipt) {
-        List<Contract.EventValuesWithLog> valueList = extractEventParametersWithLog(INITIALIZED_EVENT, transactionReceipt);
+        List<EventValuesWithLog> valueList = extractEventParametersWithLog(INITIALIZED_EVENT, transactionReceipt);
         ArrayList<InitializedEventResponse> responses = new ArrayList<InitializedEventResponse>(valueList.size());
-        for (Contract.EventValuesWithLog eventValues : valueList) {
+        for (EventValuesWithLog eventValues : valueList) {
             InitializedEventResponse typedResponse = new InitializedEventResponse();
             typedResponse.log = eventValues.getLog();
             typedResponse.version = (BigInteger) eventValues.getNonIndexedValues().get(0).getValue();
@@ -164,7 +164,7 @@ public class UpgradableTokenTest extends Contract {
         return web3j.ethLogFlowable(filter).map(new Function<Log, InitializedEventResponse>() {
             @Override
             public InitializedEventResponse apply(Log log) {
-                Contract.EventValuesWithLog eventValues = extractEventParametersWithLog(INITIALIZED_EVENT, log);
+                EventValuesWithLog eventValues = extractEventParametersWithLog(INITIALIZED_EVENT, log);
                 InitializedEventResponse typedResponse = new InitializedEventResponse();
                 typedResponse.log = log;
                 typedResponse.version = (BigInteger) eventValues.getNonIndexedValues().get(0).getValue();
@@ -180,9 +180,9 @@ public class UpgradableTokenTest extends Contract {
     }
 
     public List<OwnershipTransferredEventResponse> getOwnershipTransferredEvents(TransactionReceipt transactionReceipt) {
-        List<Contract.EventValuesWithLog> valueList = extractEventParametersWithLog(OWNERSHIPTRANSFERRED_EVENT, transactionReceipt);
+        List<EventValuesWithLog> valueList = extractEventParametersWithLog(OWNERSHIPTRANSFERRED_EVENT, transactionReceipt);
         ArrayList<OwnershipTransferredEventResponse> responses = new ArrayList<OwnershipTransferredEventResponse>(valueList.size());
-        for (Contract.EventValuesWithLog eventValues : valueList) {
+        for (EventValuesWithLog eventValues : valueList) {
             OwnershipTransferredEventResponse typedResponse = new OwnershipTransferredEventResponse();
             typedResponse.log = eventValues.getLog();
             typedResponse.previousOwner = (String) eventValues.getIndexedValues().get(0).getValue();
@@ -196,7 +196,7 @@ public class UpgradableTokenTest extends Contract {
         return web3j.ethLogFlowable(filter).map(new Function<Log, OwnershipTransferredEventResponse>() {
             @Override
             public OwnershipTransferredEventResponse apply(Log log) {
-                Contract.EventValuesWithLog eventValues = extractEventParametersWithLog(OWNERSHIPTRANSFERRED_EVENT, log);
+                EventValuesWithLog eventValues = extractEventParametersWithLog(OWNERSHIPTRANSFERRED_EVENT, log);
                 OwnershipTransferredEventResponse typedResponse = new OwnershipTransferredEventResponse();
                 typedResponse.log = log;
                 typedResponse.previousOwner = (String) eventValues.getIndexedValues().get(0).getValue();
@@ -213,9 +213,9 @@ public class UpgradableTokenTest extends Contract {
     }
 
     public List<TransferEventResponse> getTransferEvents(TransactionReceipt transactionReceipt) {
-        List<Contract.EventValuesWithLog> valueList = extractEventParametersWithLog(TRANSFER_EVENT, transactionReceipt);
+        List<EventValuesWithLog> valueList = extractEventParametersWithLog(TRANSFER_EVENT, transactionReceipt);
         ArrayList<TransferEventResponse> responses = new ArrayList<TransferEventResponse>(valueList.size());
-        for (Contract.EventValuesWithLog eventValues : valueList) {
+        for (EventValuesWithLog eventValues : valueList) {
             TransferEventResponse typedResponse = new TransferEventResponse();
             typedResponse.log = eventValues.getLog();
             typedResponse.from = (String) eventValues.getIndexedValues().get(0).getValue();
@@ -230,7 +230,7 @@ public class UpgradableTokenTest extends Contract {
         return web3j.ethLogFlowable(filter).map(new Function<Log, TransferEventResponse>() {
             @Override
             public TransferEventResponse apply(Log log) {
-                Contract.EventValuesWithLog eventValues = extractEventParametersWithLog(TRANSFER_EVENT, log);
+                EventValuesWithLog eventValues = extractEventParametersWithLog(TRANSFER_EVENT, log);
                 TransferEventResponse typedResponse = new TransferEventResponse();
                 typedResponse.log = log;
                 typedResponse.from = (String) eventValues.getIndexedValues().get(0).getValue();
@@ -249,8 +249,8 @@ public class UpgradableTokenTest extends Contract {
 
     public RemoteFunctionCall<BigInteger> allowance(String owner, String spender) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_ALLOWANCE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(160, owner), 
-                new org.web3j.abi.datatypes.Address(160, spender)), 
+                Arrays.<Type>asList(new Address(160, owner),
+                new Address(160, spender)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
         return executeRemoteCallSingleValueReturn(function, BigInteger.class);
     }
@@ -258,15 +258,15 @@ public class UpgradableTokenTest extends Contract {
     public RemoteFunctionCall<TransactionReceipt> approve(String spender, BigInteger amount) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
                 FUNC_APPROVE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(160, spender), 
-                new org.web3j.abi.datatypes.generated.Uint256(amount)), 
+                Arrays.<Type>asList(new Address(160, spender),
+                new Uint256(amount)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteFunctionCall<BigInteger> balanceOf(String account) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(FUNC_BALANCEOF, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(160, account)), 
+                Arrays.<Type>asList(new Address(160, account)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
         return executeRemoteCallSingleValueReturn(function, BigInteger.class);
     }
@@ -281,8 +281,8 @@ public class UpgradableTokenTest extends Contract {
     public RemoteFunctionCall<TransactionReceipt> decreaseAllowance(String spender, BigInteger subtractedValue) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
                 FUNC_DECREASEALLOWANCE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(160, spender), 
-                new org.web3j.abi.datatypes.generated.Uint256(subtractedValue)), 
+                Arrays.<Type>asList(new Address(160, spender),
+                new Uint256(subtractedValue)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
@@ -304,8 +304,8 @@ public class UpgradableTokenTest extends Contract {
     public RemoteFunctionCall<TransactionReceipt> increaseAllowance(String spender, BigInteger addedValue) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
                 FUNC_INCREASEALLOWANCE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(160, spender), 
-                new org.web3j.abi.datatypes.generated.Uint256(addedValue)), 
+                Arrays.<Type>asList(new Address(160, spender),
+                new Uint256(addedValue)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
@@ -313,10 +313,10 @@ public class UpgradableTokenTest extends Contract {
     public RemoteFunctionCall<TransactionReceipt> initialize(String tokenName, String tokenSymbol, BigInteger tokenDecimals, BigInteger initialSupply) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
                 FUNC_INITIALIZE, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Utf8String(tokenName), 
-                new org.web3j.abi.datatypes.Utf8String(tokenSymbol), 
-                new org.web3j.abi.datatypes.generated.Uint8(tokenDecimals), 
-                new org.web3j.abi.datatypes.generated.Uint256(initialSupply)), 
+                Arrays.<Type>asList(new Utf8String(tokenName),
+                new Utf8String(tokenSymbol),
+                new Uint8(tokenDecimals),
+                new Uint256(initialSupply)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
@@ -324,7 +324,7 @@ public class UpgradableTokenTest extends Contract {
     public RemoteFunctionCall<TransactionReceipt> mintNewTokens(BigInteger newTokens) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
                 FUNC_MINTNEWTOKENS, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(newTokens)), 
+                Arrays.<Type>asList(new Uint256(newTokens)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
@@ -354,7 +354,7 @@ public class UpgradableTokenTest extends Contract {
     public RemoteFunctionCall<TransactionReceipt> setDecimals(BigInteger tokenDecimals) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
                 FUNC_SETDECIMALS, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint8(tokenDecimals)), 
+                Arrays.<Type>asList(new Uint8(tokenDecimals)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
@@ -376,8 +376,8 @@ public class UpgradableTokenTest extends Contract {
     public RemoteFunctionCall<TransactionReceipt> transfer(String to, BigInteger amount) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
                 FUNC_TRANSFER, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(160, to), 
-                new org.web3j.abi.datatypes.generated.Uint256(amount)), 
+                Arrays.<Type>asList(new Address(160, to),
+                new Uint256(amount)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
@@ -385,9 +385,9 @@ public class UpgradableTokenTest extends Contract {
     public RemoteFunctionCall<TransactionReceipt> transferFrom(String from, String to, BigInteger amount) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
                 FUNC_TRANSFERFROM, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(160, from), 
-                new org.web3j.abi.datatypes.Address(160, to), 
-                new org.web3j.abi.datatypes.generated.Uint256(amount)), 
+                Arrays.<Type>asList(new Address(160, from),
+                new Address(160, to),
+                new Uint256(amount)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
@@ -395,7 +395,7 @@ public class UpgradableTokenTest extends Contract {
     public RemoteFunctionCall<TransactionReceipt> transferOwnership(String newOwner) {
         final org.web3j.abi.datatypes.Function function = new org.web3j.abi.datatypes.Function(
                 FUNC_TRANSFEROWNERSHIP, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(160, newOwner)), 
+                Arrays.<Type>asList(new Address(160, newOwner)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }

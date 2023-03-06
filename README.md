@@ -1,37 +1,28 @@
-# Blockchain API created to get the name of a ERC20 token and mintend tokens
+# API that can be used as a template to develop smart contracts based on the ERC20 Upgradable standard
 
-# Sample Hardhat Project
+# Description:
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+There is 1 smart contact:
 
-Try running some of the following tasks:
+UpgradableTokenTest
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
-
-
-Install hardhat project with:
+# Requirements:
 
 ```shell
-npm install --save-dev hardhat
-npx hardhat
-npm install @openzeppelin/contracts-upgradeable
-npm install @openzeppelin/hardhat-upgrades
-npm install @openzeppelin/contracts
-npm install --save-dev @nomiclabs/hardhat-waffle 'ethereum-waffle@^3.0.0' @nomiclabs/hardhat-ethers 'ethers@^5.0.0'
-npm install dotenv
-npx hardhat compile
-npx hardhat run scripts/deploySmartContract.js --network miRed
-npx hardhat console --network miRed
+Java 11
+web3j-1.4.1
 ```
 
-Run the tests with:
-```shell
-npx hardhat test
-```
+# How to deploy:
+1. git clone https://github.com/dariusjvc/JavaEthereumAPI.git
+2. Deploy smart contracts with hardhat in quorum-test-network:
+   https://besu.hyperledger.org/en/stable/private-networks/tutorials/quickstart/#prerequisites
+3. Open with Intellij IDEA and play
+
+# API url :
+http://localhost:8080/ethereum-api/swagger-ui/index.html#/
+
+
+
+
 
