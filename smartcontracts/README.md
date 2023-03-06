@@ -1,21 +1,4 @@
-# Blockchain API created to get the name of a ERC20 token and mintend tokens
-
-# Sample Hardhat Project
-
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
-
-
-Install hardhat project with:
+# How to deploy the UpgradableTokenTest.sol:
 
 ```shell
 npm install --save-dev hardhat
