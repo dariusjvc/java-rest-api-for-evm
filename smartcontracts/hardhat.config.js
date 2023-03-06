@@ -33,7 +33,6 @@ module.exports = {
   networks: {
     miRed: {
           url: `http://localhost:8545`,
-          //url: `https://blockchain-net-${process.env.ENVI}.apps.cluster-01.paymentslabs.com`,
           accounts: [`0x${process.env.ADMIN_PRIV_KEY}`]
         }
   }
