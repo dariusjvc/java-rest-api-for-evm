@@ -23,7 +23,7 @@ web3j-1.4.1
 ![img.png](img.png)
 
 # API url :
-http://localhost:8080/fabric-api/swagger-ui/index.html#/
+http://localhost:8080/ethereum-api/swagger-ui/index.html#/
 
 
 
