@@ -14,7 +14,7 @@ web3j-1.4.1
 ```
 
 # How to deploy:
-1. git clone https://github.com/dariusjvc/JavaEthereumAPI.git
+1. git clone https://github.com/dariusjvc/Java-RestAPI-For-Ethereum.git
 2. Deploy smart contracts with hardhat in quorum-test-network:
    https://besu.hyperledger.org/en/stable/private-networks/tutorials/quickstart/#prerequisites
 3. Open with Intellij IDEA and play
