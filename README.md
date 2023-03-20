@@ -1,4 +1,4 @@
-# API that can be used as a template to develop smart contracts based on the ERC20 Upgradable standard
+# Rest API to develop smart contracts based on the ERC20 Upgradable standard
 
 # Description:
 Blockchain API created to get the name of a ERC20 token and mintend tokens.
