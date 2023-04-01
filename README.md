@@ -1,4 +1,4 @@
-# Rest API to develop smart contracts based on the ERC20 Upgradable standard
+# Java REST API to invoke smart contracts to the ethereum client (Hyperledger Besu)
 
 # Description:
 Blockchain API created to get the name of a ERC20 token and mintend tokens.
