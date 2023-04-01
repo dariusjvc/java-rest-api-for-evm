@@ -4,7 +4,7 @@
 Blockchain API created to get the name of a ERC20 token and mintend tokens.
 There is 1 smart contact:
 
-UpgradableTokenTest
+UpgradableTokenTest.sol
 
 # Requirements:
 
