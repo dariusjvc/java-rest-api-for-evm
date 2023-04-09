@@ -15,7 +15,6 @@ describe("Token contract", function () {
     let decimals;
     let newDecimals;
     let initialSupply;
-    let bank1;
     let Alice;
     let Bob;
 
@@ -27,7 +26,6 @@ describe("Token contract", function () {
         tokenSymbol = "$T"
         Alice = addr1;
         Bob = addr2;
-        bank1 = addr3;
         decimals = 8;
         newDecimals = 10;
         initialSupply = 10000;

@@ -8,9 +8,9 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
 // This is the main building block for smart contracts.
 contract UpgradableTokenTest is
-    Initializable,
-    ERC20Upgradeable,
-    OwnableUpgradeable
+Initializable,
+ERC20Upgradeable,
+OwnableUpgradeable
 {
     using SafeMath for uint256;
     using SafeMath for uint8;
@@ -18,9 +18,6 @@ contract UpgradableTokenTest is
     address private _owner;
     uint8 private _decimals;
     uint256 private _totalMinted;
-
-    mapping(string => address) bank2wallet;
-    mapping(address => string) wallet2bank;
 
     function initialize(
         string memory tokenName,
