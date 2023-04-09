@@ -1,10 +1,10 @@
-# API that can be used as a template to develop smart contracts based on the ERC20 Upgradable standard
+# Java REST API to invoke smart contracts deployed on an ethereum client (Hyperledger Besu)
 
 # Description:
 Blockchain API created to get the name of a ERC20 token and mintend tokens.
 There is 1 smart contact:
 
-UpgradableTokenTest
+UpgradableTokenTest.sol
 
 # Requirements:
 
@@ -14,7 +14,7 @@ web3j-1.4.1
 ```
 
 # How to deploy:
-1. git clone https://github.com/dariusjvc/JavaEthereumAPI.git
+1. git clone https://github.com/dariusjvc/Java-RestAPI-For-Ethereum.git
 2. Deploy smart contracts with hardhat in quorum-test-network:
    https://besu.hyperledger.org/en/stable/private-networks/tutorials/quickstart/#prerequisites
 3. Open with Intellij IDEA and play
