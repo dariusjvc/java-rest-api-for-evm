@@ -6,13 +6,6 @@ There is 1 smart contact:
 
 UpgradableTokenTest.sol
 
-# Requirements:
-
-```shell
-Java 11
-web3j-1.4.1
-```
-
 # How to deploy:
 1. git clone https://github.com/dariusjvc/Java-RestAPI-For-Ethereum.git
 2. Deploy smart contracts with hardhat in quorum-test-network:
